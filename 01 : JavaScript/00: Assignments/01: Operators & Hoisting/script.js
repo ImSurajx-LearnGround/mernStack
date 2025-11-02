@@ -43,7 +43,7 @@ console.log(5>3 || 10<8); // true
 console.log(5 & 1); // Bitwise AND (&): Returns 1 if both corresponding bits are 1; otherwise, it returns 0.
 console.log(5 | 1); // Bitwise OR (|): Returns 1 if at least one of the corresponding bits is 1; otherwise, it returns 0.
 
-2. Variable Hoisting in JavaScript
+// 2. Variable Hoisting in JavaScript
 
 // a. Predict output of:
     console.log(a); // undefined

@@ -41,7 +41,7 @@ for(let i = 1; i <= 10; i++){
     console.log(i);
 }
 
-// Q1. Print number from 10 to 1 using a while lopp
+// Q2. Print number from 10 to 1 using a while lopp
 let i = 10;
 while( i >= 1){
     console.log(i);
@@ -113,4 +113,81 @@ for(let i = 1; i <= 100; i++){
     console.log(i);
     count++;
     if(count === 5) break;
+}
+
+// Ques: Print Yes 5 times
+for (let i = 1; i <= 5; i++){
+    console.log("yes");
+}
+
+
+let age = prompt("age batao: ");
+if (age === null) {
+    console.error("you cancelled it");
+} else {
+    if (age.trim() === "") {
+        console.error("bhai dhang se likh...");
+    } else {
+        age = +(age.trim());
+        if (isNaN(age)) {
+            console.error("bhai please number dede.");
+        } else {
+            console.log("confirm ye number hain");
+
+        }
+    }
+}
+
+// ques: count how many numbers between 1 and 15 are greater than 8, loop and count conditionaly
+let count = 0;
+for(let i = 1; i <= 15; i++){
+    if(i>8) count++;
+}
+console.log(count);
+
+// ask user for password and print access status, hardcoded correct password, compare with user input.
+const password = "Sk@123";
+const userEnter = prompt("enter password : ");
+if (userEnter === null) {
+    console.log("no input");
+} else if (userEnter === password) {
+    console.log("Access Granted.");
+} else {
+    console.log("Access Declined");
+}
+
+allow user for words until they type "stop", count how many times they typed "yes" loop until "stop" is typed. Count yes.
+let breaker = null;
+let count = 0;
+while(breaker !== "stop"){
+    breaker = prompt("enter string : ");
+    if(breaker === "yes") count++;
+}
+console.log(`the yes was typed : ${count} times.`);
+
+// keep asking number until user enters an even number, use while loop, stop only if input is even
+let num = 1;
+while(num%2!==0){
+    num = +prompt("enter num : ");
+    if (num%2==0) console.log("the number is even");   
+}
+
+
+// ATM simulator- allow 3 withdrawals, start with 1000 balance. ask withdrawal amount 3 times if enough balance -> deducted else -> "insufficient balance" 
+let startBalance = 1000;
+let totalWithdrawl = 3;
+while (totalWithdrawl > 0) {
+    let amount = prompt("enter withdrawl amount: ");
+    if (amount === null) {
+        console.log("no amount enter, retry")
+    }
+    else if (+amount <= startBalance) {
+        startBalance -= +amount;
+        console.log("withdrwal sucessfull");
+        totalWithdrawl--;
+    } else {
+        console.log(`Insufficient balance, enter amount which is less than or equal to ${startBalance}`);
+        totalWithdrawl--;
+    }
+
 }
