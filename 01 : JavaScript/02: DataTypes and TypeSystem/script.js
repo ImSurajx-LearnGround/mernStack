@@ -3,10 +3,21 @@
 // primitives -> aisi saari values jinko copy karne pad hamea ek real copy mil jaye
 // string, number, boolean, null, undefined, symbol. bigInt
 
+
 // strings;
 // '' - single quotes;
 // "" - double quotes;
-// `` - backticks;
+// `` - backticks (template string);
+slice(initalValue, lastValue); // use to slice string
+"suraj".split(); // move string into arrray
+"suraj".split(''); // move string each char into arrray
+string.split('data through you want to split');
+string.replace('find & replace the value');
+string.replaceAll('find & replace the value');
+
+
+// statement : a code which do not produce the value is known as statement.
+// expression : a code which produce the value is known as expression.
 
 // 12 - number;
 
@@ -28,11 +39,11 @@ let x = 9007199254740991n;
 // reference -> inko copy karne par real copy nahi milega instead, refernce milega parent ka
 // arrays, objects, funtions
 
-// arrays
+// arrays: for store of different/similar type of data.
 let arr = [1,2,3];
 
 
-// object
+// object: data of a specific person, in key value pair
 let obj = {
     key : value,
     key : value,
@@ -50,6 +61,8 @@ m = [];
 m = obj = {
 
 };
+
+// infinity : 1/0
 
 // typeof : use to check datatype.
 // typeof(null) = object

@@ -60,3 +60,15 @@ console.log(a);
 var a = 12;
 var a = undefined;
 a = 12;
+
+// printing
+console.log("Hello Suraj"); // normal prinitng 
+console.info("Hello World"); // printing with info sign, kuch kuch broweser bas console info ko alag tarike se show karte hain bas ek i sign aa jaata hain.
+console.warn("yellow color"); // print warning in yellow color
+console.error("red color"); // print errors
+console.table("tables"); 
+
+// prompt & alert
+prompt("enter your name : "); // to take input.
+alert("for only alert : "); // to show message.
+

@@ -61,4 +61,21 @@ console.log(typeof (null));
 a = [];
 console.log(a instanceof Array); // check the identity of the element
 
+// spread / rest operator  : used to  to copy array
+let arr = [1,2,3,4,5]; 
+let arrx = [...arr]; // spread
+
+// rest...
+function abcd(a,b,c,...rest){
+
+}
+abcd(1,2,3,34,4,5,6)
+
+// nullish : ?? (fallback only when null / undefined);
+
+
+// optional chainning
+let obj = {};
+
+obj?.name?.first;
 
