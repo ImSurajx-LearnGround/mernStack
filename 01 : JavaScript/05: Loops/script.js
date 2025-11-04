@@ -191,3 +191,35 @@ while (totalWithdrawl > 0) {
     }
 
 }
+
+take age, as a input from user & output it's age
+let age = prompt("enter age : ");
+age = +age;
+
+if (isNaN(age) || age <= 0) {
+    console.log("enter a valid input");
+} else {
+    console.log(`your age is ${age}`);
+    if (age > 18) console.log("you can vote.");
+    else console.log("you can't vote.");
+
+}
+
+
+// Level 2 : Slightly tougher but logical
+
+// Q: allow only 3 attempts to enter correct password, if user gets it early, stop, if not "Account locked"
+let storePassword = "hellobhai";
+let count = 0;
+for (let i = 0; i < 3; i++) {
+    let password = prompt("enter password : ");
+    if (storePassword === password) {
+        console.log("Access Granted");
+        break;
+    } else {
+        console.warn("try again.");
+        count++;
+    }
+}
+if(count === 3) console.log("Account locked due to multiple failed attempts");
+
