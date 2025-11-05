@@ -254,7 +254,7 @@ for(let i = start+1; i <= end-1; i++){
     console.log(i); 
 }
 
-// // Q: Print only first 3 odd numbers from 1 to 20 use loop. stop with break after 3 odd prints.
+// Q: Print only first 3 odd numbers from 1 to 20 use loop. stop with break after 3 odd prints.
 let count = 1;
 for(let i = 1; i <= 20; i++){
     if(i%2!=0){
@@ -283,7 +283,7 @@ let withdrawalCount = 0;
 let balance = 1000;
 while(withdrawalCount < 3){
     let amount = +prompt("enter amount : ");
-    if(amount > balance){
+    if(amount > balance && amount === 0 ){
         console.log(`insufficient fund`);
         withdrawalCount++;
     } else{
@@ -293,6 +293,12 @@ while(withdrawalCount < 3){
     }
 }
 
-
+// - Recursion in JavaScript : function calling itself.
+function abcd(n){
+    if(n===0) return;
+    console.log(n);
+    abcd(n-1);
+}
+abcd(5);
 
 

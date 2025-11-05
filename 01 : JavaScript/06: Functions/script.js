@@ -528,3 +528,10 @@ timer("start");
 setTimeout(() => {
   timer("stop");
 }, 3000);
+
+function doSomething(name, age, email){
+    console.log(arguments[0]);
+    
+}
+
+doSomething("Suraj Kumar", 27, "harsh@gmail.com");
