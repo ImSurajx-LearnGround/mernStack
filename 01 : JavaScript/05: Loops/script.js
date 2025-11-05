@@ -223,3 +223,76 @@ for (let i = 0; i < 3; i++) {
 }
 if(count === 3) console.log("Account locked due to multiple failed attempts");
 
+// Q: ask user for words until they type "stop". count how many times they typed "yes".
+let count = 0, userInput = null;
+while ("stop" != userInput) {
+    userInput = prompt("enter word: ");
+    if (userInput === "yes") count++;
+}
+if ("stop" === userInput) console.log(`yes was typed ${count} times.`);
+
+// Q: print the number from 1 to 50 which is divisible by 7.
+for(let i = 1; i <= 50; i++){
+    if(i%7==0) console.log(i);
+}
+
+// Q: sum of all odd numbers from 1 to 30, add only odd numbers. print final sum.
+let sum = 0;
+for(let i = 1; i <= 30; i++) if(i%2!=0) sum+=i;
+console.log(`sum is : ${sum}`);
+
+// Q: keep asking number until user enters an even number use while loop, stop only if input is even.
+let num = +prompt("enter a number: ");
+while(num%2!==0){
+    num = +prompt("enter a number");
+}
+
+// Q: print number between two user inputs, input start and end using prompt() -> print all between
+let start = +prompt("enter start point: ");
+let end = +prompt("enter end point: ");
+for(let i = start+1; i <= end-1; i++){
+    console.log(i); 
+}
+
+// // Q: Print only first 3 odd numbers from 1 to 20 use loop. stop with break after 3 odd prints.
+let count = 1;
+for(let i = 1; i <= 20; i++){
+    if(i%2!=0){
+        if(count <= 3){
+            console.log(i);
+            count++;
+        } else{
+            break;
+        }
+    }
+}
+
+// Q: ask user 5 numbers, count how many are positive use loop + condition + counter.
+let count = 0;
+for(let i = 0; i < 5; i++ ){
+    let num = +prompt("enter number");
+    if(num>0){
+        count++;
+    }
+}
+console.log(count);
+
+
+// Q: ATM Simulator - allow 3 withdrawals start with 1000 balance ask withdrawal amount 3 times. if enough balance deduct else print , "insufficient balance";
+let withdrawalCount = 0;
+let balance = 1000;
+while(withdrawalCount < 3){
+    let amount = +prompt("enter amount : ");
+    if(amount > balance){
+        console.log(`insufficient fund`);
+        withdrawalCount++;
+    } else{
+        balance -= amount;
+        console.log(`withdrawal amount : ${amount} & remaining balance is : ${balance}`);
+        withdrawalCount++;
+    }
+}
+
+
+
+
