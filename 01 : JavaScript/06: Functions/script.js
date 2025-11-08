@@ -535,3 +535,17 @@ function doSomething(name, age, email){
 }
 
 doSomething("Suraj Kumar", 27, "harsh@gmail.com");
+
+// anonymous function: a function without name use for passing into methods.
+// pure function : same input, same output
+// impure function : samne input but diff output
+// global scop : a varible which is declared globaly.
+// function scop : a function which is declared inside function.
+
+// closures, scoping rules : 
+function returnFunction(){
+    let count = 0;
+    return () => {
+        count++;
+    }
+}
