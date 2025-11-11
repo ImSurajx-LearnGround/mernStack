@@ -350,6 +350,19 @@ function calculateAverage(marks){
 }
 console.log(calculateAverage(marks));
 
+// ques : create an array of 5 fruits. add one at the end and remove one from the beginning.
+let fruits = ["apple", "mango", "banana", "guava", "orange"];
+fruits.push("pineapple");
+fruits.unshift("greeps");
+console.log(fruits);
+
+
+// ques : use a for loop to print all elements of an array
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}
+
+
 
 
 

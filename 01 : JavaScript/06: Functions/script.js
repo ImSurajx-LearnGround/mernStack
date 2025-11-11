@@ -549,3 +549,51 @@ function returnFunction(){
         count++;
     }
 }
+
+
+// ques : waf sayHello() that prints "Hello JavaScript"
+function sayHello(){
+    console.log("Hello JavaScript");
+}
+sayHello();
+
+// ques : create a function add(a,b) that return their sum and log the result
+function sum(a,b){
+    return a + b;
+}
+
+console.log(sum(3,4));
+
+// ques : waf with default parameter name "Guest", that prints "Hi <name>"
+function greeting(name = "Guest"){
+    console.log(`Hi ${name}`);
+};
+
+console.log(greeting("Suraj"));
+
+// ques : use rest parameter to make a function that adds unlitmit number
+function addInfite(...nums){ // rest operator returns an array
+    sum = 0;
+    nums.forEach((val) => {
+        sum += val;
+    },0)
+    return sum;
+}
+console.log(addInfite(1,2,3,4,5,6,7,8));
+
+// ques : create an IIFE that prints  "I run instantly!"
+(function(){
+    console.log("I run instantly!");
+})();
+
+// ques : make a nested function where the inner one prints a variable from the outer one
+function parent(){
+    let a = 12;
+    function child(){
+        console.log(a);
+    }
+    child();
+}
+parent();
+
+
