@@ -596,4 +596,58 @@ function parent(){
 }
 parent();
 
+// wa-hof runTeice(fn) that takes another function and executes it two times
+function runOnce(){
+    console.log("Hello Suraj");
+}
 
+function runTwice(fun){
+    fun();
+    fun();
+}
+
+runTwice(runOnce);
+
+// create one pure function that always return the same output for given input, and one impure function using a global variable.
+// a pure function always returns the same output for the same input and never changes anything outside the function.
+function pure(name){ // pure function which is not making any changes in global variable
+    return name;
+}
+// an impure function depends on or modifies external/global state or produces side effects.
+let imName;
+function impure(){ // impure function which is changing global variable
+    imName = "Dheeraj Kumar"
+    return imName;
+}
+name = prompt("enter name: ");
+console.log(pure(name));
+console.log(impure());
+
+// waf that uses object destructuring indside parametere to extract and print name and age.
+let user = {
+    name : `Suraj Kumar`,
+    age : `21`,
+    city : `Delhi`,
+};
+
+function objDes({name , age}){
+    console.log(age);
+    console.log(name);
+}
+objDes(user);
+
+// demonstrate the difference between normal function arrow, function when used as object methods (this issue)
+// this keyword : this is keyword which values changes according to use.
+// arrow function ka this = us scope ka this jisme arrow bana hai.
+let obj = {
+    name : "Suraj",
+    age : 21,
+    fun : function(){
+        console.log(this); // if you create a object, & inside object you created a function where you use .this, that mean .this is equal to the object itself.
+    },
+    fun2: () => {
+        console.log(this); // if it's a arrow function that mean it will be an window
+    }
+};
+obj.fun();
+obj.fun2();

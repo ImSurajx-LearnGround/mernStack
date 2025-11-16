@@ -362,7 +362,33 @@ for (let i = 0; i < fruits.length; i++) {
     console.log(fruits[i]);
 }
 
+// given an array of numbers, use map() to create a new array where each number is squared.
+let arr = [1,2,3,4,5];
+let sqOfArr = arr.map((val)=>{
+    return val * val;
+});
+console.log(arr);
+console.log(sqOfArr);
+
+// use filter() to get only even numbers from an array.
+let arr = [1,2,3,4,5,6];
+let evenArr = arr.filter((val => val  % 2 === 0));
+console.log(arr);
+console.log(evenArr);
+
+// use reduce() to find the total salary from an array of numbers [1000,2000, 3000];
+let arr = [1000,2000,3000];
+let salary = arr.reduce((acc, val)=>{
+    return acc + val;
+},0);
+// let salary = arr.reduce((acc, val) => acc + val, 0); sorter version
+console.log(salary);
 
 
-
+// create an array of name and use some() and every to test a condition (e.g., all names longer than 3 char).
+let names = ["suraj", "jatin", "avi", "rekha"];
+let so = names.some((val => val.length <= 3)); // check condition for one element -> true
+let ev = names.every((val => val.length <= 3)); // check condition for each element -> false
+console.log(so);
+console.log(ev);
 
