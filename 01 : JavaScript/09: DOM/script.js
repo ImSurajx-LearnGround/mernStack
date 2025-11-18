@@ -49,11 +49,152 @@ h1.classList.add("hulu"); // using class
 h1.classList.remove("hulu"); // remove class
 h1.classList.toggle("hulu"); // ager class laga hain to hata dega, ager hata hain to laga dega
 
-// event listener
+// event listener : action -> <- reaction
+
+// event mean there are some action
 let h1 = document.querySelector('h1');
 h1.addEventListener('click', function(){
     console.log('hello');
 });
+element.addEventListener("eventname", function(){});
+element.removeEventLister("eventname", function(){}); // pass same function when you add eventlistner to remove event.
+
+input event
+let inputBox = document.querySelector('input');
+inputBox.addEventListener("input", function(evt){ // here evt get details
+    if(evt.data !== null) console.log(evt.data);
+});
+
+change event tab chalta hain jab aapka koi input select ya textarea mea koi change hojaye
+let select = document.querySelector('select');
+let h3 = document.querySelector('h3');
+select.addEventListener("change", (evt) => {
+    console.log(evt.target.value);
+    h3.textContent = `${evt.target.value} device is selected.`;
+})
+
+whatever we will type it must be on the screen;
+document.addEventListener("keypress", (evt)=>{
+    if(evt.key === ' ') document.querySelector('h1').textContent = "space";
+    else document.querySelector('h1').textContent = evt.key;
+});
+
+let btn = document.querySelector("#btn");
+let fileInput = document.querySelector('input');
+btn.addEventListener("click",()=>{
+    fileInput.click();
+});
+fileInput.addEventListener("change", (evt)=>{
+    const file = evt.target.files[0];
+    if(file) btn.textContent = file.name;
+})
+
+let form = document.querySelector("form");
+let inputs = document.querySelectorAll("input")
+let main = document.querySelector("#main");
+form.addEventListener("submit", (evt)=>{
+    evt.preventDefault();
+    let card = document.createElement("div");
+    card.classList.add("card");
+
+    let profile = document.createElement("div");
+    profile.classList.add("profile");
+
+    let img = document.createElement("img");
+    img.setAttribute("src", inputs[0].value);
+
+    let h3 = document.createElement("h3");
+    h3.textContent = inputs[1].value;
+    let h5 = document.createElement("h5");
+    h5.textContent = inputs[2].value;
+    let p = document.createElement("p");
+    p.textContent = inputs[3].value;
+
+    profile.appendChild(img);
+    card.appendChild(profile);
+    card.appendChild(h3);
+    card.appendChild(h5);
+    card.appendChild(p);
+    main.appendChild(card);
+    
+    inputs.forEach((val)=>{
+        if(inputs.type !== "submit") inputs.value = "";
+    });
+    
+});
+
+let abcd = document.querySelector("#abcd");
+abcd.addEventListener("mouseover", ()=>{
+    abcd.style.background = "red";
+})
+abcd.addEventListener("mouseout", ()=>{
+    abcd.style.background = "yellow";
+})
+
+let abcd = document.querySelector('#abcd');
+
+window.addEventListener("mousemove", (evt)=>{
+    abcd.style.top = (evt.clientX - 100 )+ "px" ;
+    abcd.style.left = (evt.clientY - 100) + "px";
+    console.log(evt.clientX, evt.clientY);
+})
+
+let abcd = document.querySelector("#abcd");
+abcd.addEventListener("click", (evt)=>{
+    console.log(evt); // evt is a object here
+})
+
+event bubbling : jispe event aayega ager uspar linstener nahi  hua to humara event uske parent par listner dhundhega aur aisa karte karte upar ki traf move karega.
+let ul = document.querySelector('ul');
+ul.addEventListener('click', (evt)=>{
+    evt.target.classList.toggle("lt");
+});
+
+// jab bhi aap click karte ho ya koi bhi event raise karte ho to aapka jo event flow do phases mein chalta hain.
+// phase 1: event top level element se neechea ki taraf aayega (capture phase) , ture -> to enable capta phase
+// phase 2: event raised element se parent ki taraf jaayega (bubbling phase)
+// aur pehle phase i hote hain
+
+let input = document.querySelector("input");
+let span = document.querySelector("span");
+input.addEventListener("input", (evt)=>{
+    let left = 20 - input.value.length;
+    if(left < 0) {
+        span.textContent = left;
+        span.style.color = "red";
+    } else{
+        span.textContent = left;
+        span.style.color = "black";
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // T1: select the heading of a page by ID and change its text to "Welcome to Sheryians";
 let heading = document.getElementById("heading");
