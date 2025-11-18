@@ -4,84 +4,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM : Document Object Model</title>
-    <link rel="stylesheet" href="style.css">
+    <title>JS : DOM</title>
+    <!-- style sheet -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            background-color: #111;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            gap: 10px;
+        }
+
+        #box {
+            height: 200px;
+            width: 200px;
+            border-radius: 5px;
+            background-color: rgb(0, 0, 0);
+            border: 1px solid #fff;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: crimson;
+            color: #fff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border-radius: 5px;
+            border: none;
+            font-weight: 300;
+            font-size: 18px;
+            border: 1px solid #fff;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: coral;
+        }
+
+        button:active{
+            scale: 0.95;
+        }
+        h1{
+            color: #fff;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
-    <h1 id="heading">Hello Suraj</h1>
-    <ol>
-        <li>Suraj</li>
-        <li>Jatin</li>
-        <li>Dushyant</li>
-        <li>Govind</li>
-        <li>Ritesh</li>
-    </ol>
-    <p>Hello</p>
-    <a href="#">Sheryians</a>
-    <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolorum aspernatur libero, magnam rerum
-            accusantium itaque beatae laborum, numquam culpa esse doloremque expedita voluptates temporibus quod commodi
-            sequi architecto reprehenderit repellat, cum sint ratione? Minima maiores quasi sint temporibus ullam, odio,
-            magnam placeat asperiores unde commodi illum error qui molestiae.</p>
+    <div id="box">
+        <h1>***</h1>
     </div>
-    <button disabled>Download Now</button>
-    <p>Hi, Hello</p>
-    <p>Hi, Hello</p>
-    <p>Hi, Hello</p>
-    <p>Hi, Hello</p>
-    <p>Hi, Hello</p>
-    <h1>Hello</h1>
-    <input type="text">
-    <h3>Select your device</h3>
-    <select name="" id="">
-        <option selected disabled>choose your device</option>
-        <option value="samsung">samsung</option>
-        <option value="xiaomi">xiaomi</option>
-        <option value="apple">apple</option>
-        <option value="oppo">oppo</option>
-    </select>
+    <button>change</button>
 
-    <div id="main">
-        <input type="file" name="" id="">
-        <div id="btn">
-            Upload file
-        </div>
-    </div>
 
-    <div id="main">
-        <form action="">
-            <input type="text" placeholder="profile-pic">
-            <input type="text" placeholder="name">
-            <input type="text" placeholder="occupation">
-            <input type="text" placeholder="info">
-            <input type="submit" value="submit">
-        </form>
-
-        <div class="card">
-            <div class="profile">
-                <img src="https://images.unsplash.com/photo-1763046287602-7f878927101f?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="" srcset="">
-            </div>
-            <h3>Suraj Kumar</h3>
-            <h5>Creative Corder</h5>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis animi ducimus maiores cum at
-                quaerat tempora, enim blanditiis. Magni iusto commodi atque hic laborum fugiat reiciendis, harum odio.
-                Alias quo laboriosam esse?</p>
-        </div>
-    </div>
-
-    <div id="abcd"></div>
-    <ul>
-        <li>apple</li>
-        <li>banana</li>
-        <li>guava</li>
-        <li>orange</li>
-        <li>mango</li>
-    </ul>
-    <input type="text" name="" id="" placeholder="write anything here">
-    <h1>Total Characters : <span>0</span></h1>
-    <script src="./script.js"></script>
+    <!-- script file -->
+    <script>
+        // Math.random -> use to genrate random number, Math.floor -> to round off values
+        let randomNum = Math.floor(Math.random() * 255 + 1);
+        let btn = document.querySelector('button');
+        let box = document.querySelector('#box');
+        let names = ['suraj', 'jatin', 'dushyant', 'ritesh', 'govind', 'aakash', 'jitanshu', 'vivek', 'sandeep', 'sarthak', 'ankur', 'manish'];
+        let random = Math.floor(Math.random()*names.length);
+        let h1 = document.querySelector('h1')
+        var cricketTeam = [
+            {
+                teams : 'CSK',
+                primary : 'yellow',
+                secondary : 'black',
+            }, 
+            {
+                teams : 'RCB',
+                primary : 'red',
+                secondary : 'black',
+            }, 
+            {
+                teams : 'MI',
+                primary : 'blue',
+                secondary : 'gold',
+            }, 
+            {
+                teams : 'KKR',
+                primary : 'purple',
+                secondary : 'gold',
+            }, 
+        ]
+        
+        btn.addEventListener("click", (evt)=>{
+            let colorOne = Math.floor(Math.random()*256);
+            let colorTwo = Math.floor(Math.random()*256);
+            let colorThree = Math.floor(Math.random()*256);
+            let winnerTeam = Math.floor(Math.random()*cricketTeam.length);
+            box.style.backgroundColor = `rgb(${colorOne},${colorTwo},${colorThree})`;
+            h1.textContent = cricketTeam[winnerTeam].teams;
+            h1.style.backgroundColor = cricketTeam[winnerTeam].secondary;
+            h1.style.color = cricketTeam[winnerTeam].primary;
+        });
+    </script>
 </body>
 
 </html>
