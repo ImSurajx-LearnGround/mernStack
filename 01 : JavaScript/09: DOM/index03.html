@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>JavaScript: More in DOM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 400;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        @keyframes dance {
+            0% {
+                opacity: 0.2;
+                transform: translate(-50%, -50%) scale(0);
+            }
+            50%{
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.5);
+            }
+            100%{
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+        }
+
+        main {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            height: 450px;
+            width: 350px;
+            background: #fff;
+            border-radius: 5px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 7fr 1fr;
+            user-select: none;
+        }
+
+        .top {
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px 1rem;
+        }
+
+        .top .first {
+            width: 60%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile-pic {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background: url(./src/img/profile-pic.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .username {
+            font-size: 1.3rem;
+        }
+
+
+        .middle {
+            background: url(./src/img/post.jpg);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        #bigHeart{
+            font-size: 4rem;
+            transform: scale(1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: all ease-in-out;
+        }
+
+        #bigHeart.active{
+            background: linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            --webkit-text-fill-color: transparent;
+            animation: dance 0.5s ease-out;
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            margin: 0px 10px;
+        }
+
+        .bottom .social {
+            font-size: 1.5rem;
+        }
+
+        .bottom .save {
+            font-size: 1.5rem;
+        }
+
+        .bottom .social i {
+            cursor: pointer;
+        }
+
+        .bottom .save i {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="card">
+            <div class="top">
+                <div class="first">
+                    <div class="profile-pic"></div>
+                    <div class="username">Suraj Kumar</div>
+                </div>
+                <div class="second">
+                    <i class="ri-more-fill"></i>
+                </div>
+            </div>
+            <div class="middle">
+                <i id="bigHeart" class="ri-heart-3-fill"></i>
+                <div class="post"></div>
+            </div>
+            <div class="bottom">
+                <div class="social">
+                    <i id="heart" class="ri-heart-3-line"></i>
+                    <i class="ri-chat-1-line"></i>
+                    <i class="ri-send-plane-line"></i>
+                </div>
+                <div class="save">
+                    <i class="ri-bookmark-line"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        let heart = document.querySelector("#heart");
+        let middle = document.querySelector(".middle");
+        let bigHeart = document.querySelector("#bigHeart");
+        heart.addEventListener('click', () => {
+            if (heart.classList.contains("ri-heart-3-line")) {
+                heart.classList.remove("ri-heart-3-line");
+                heart.classList.add("ri-heart-3-fill");
+                heart.style.color = "red";
+            } else {
+                heart.classList.remove("ri-heart-3-fill");
+                heart.classList.add("ri-heart-3-line");
+                heart.style.color = "black"
+            }
+        })
+
+        middle.addEventListener("dblclick", ()=> {
+            bigHeart.classList.add("active");
+            console.log(document.querySelector('.active'));
+            heart.classList.remove("ri-heart-3-line");
+            heart.classList.add("ri-heart-3-fill");
+            heart.style.color = "red";
+            setTimeout(()=>{
+                bigHeart.classList.remove("active");
+            },500)
+        });
+    </script>
+</body>
+
+</html>
