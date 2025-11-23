@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM: More in DOM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        #main {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #222;
+        }
+
+        button {
+            padding: 10px 30px;
+            font-size: 2rem;
+            background-color: royalblue;
+            color: #fff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 300;
+            border-radius: 5px;
+            border: none;
+            position: relative;
+            z-index: 1000;
+        }
+
+        main {
+            height: 100%;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 300;
+            overflow: hidden;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <button>create element</button>
+    </div>
+    <main>
+
+    </main>
+    <script>
+        // create element
+        let btn = document.createElement('button');
+        btn.innerHTML = 'download';
+        // append child
+        document.querySelector('#main').appendChild(btn);
+        let btn = document.querySelector('button');
+        let main = document.querySelector('#main');
+        btn.addEventListener("click", () => {
+            let div = document.createElement('div');
+            let x = Math.floor((Math.random() * 101));
+            let y = Math.floor((Math.random() * 101));
+            let r = Math.floor((Math.random() * 361));
+            let c1 = Math.floor((Math.random() * 256));
+            let c2 = Math.floor((Math.random() * 256));
+            let c3 = Math.floor((Math.random() * 256));
+            div.style.width = "50px",
+            div.style.height = "50px",
+            div.style.position = "absolute",
+            div.style.left = x + "%";
+            div.style.top = y + "%";
+            div.style.rotate = r + "deg";
+            div.style.backgroundColor = `rgb(${c1},${c2},${c3})`;
+            main.appendChild(div);
+        })
+
+        // task : 2
+        let main = document.querySelector('main');
+        main.addEventListener("click", () => {
+            const quotes = [
+                "Believe you can and you're halfway there.",
+                "Dream big. Start small. Act now.",
+                "Success is the sum of small efforts repeated daily.",
+                "Do it with passion or not at all.",
+                "Stay hungry, stay foolish.",
+                "Every moment is a fresh beginning.",
+                "Doubt kills more dreams than failure ever will.",
+                "Focus on the step in front of you, not the whole staircase.",
+                "Great things never come from comfort zones.",
+                "Be stronger than your excuses.",
+                "It's never too late to start.",
+                "Consistency beats talent.",
+                "One day or day one – you decide.",
+                "Work hard in silence, let success make the noise.",
+                "Your only limit is your mind.",
+                "Small steps every day.",
+                "Progress is still progress.",
+                "Failure is not the opposite of success; it is part of it.",
+                "Start where you are. Use what you have. Do what you can.",
+                "Discipline creates habits, habits create results.",
+                "Push yourself because no one else is going to do it for you.",
+                "If not now, when?",
+                "Act like you already have what you want.",
+                "You become what you believe.",
+                "The future depends on what you do today.",
+                "Success starts with self-discipline.",
+                "Winners are not people who never fail, they are people who never quit.",
+                "You don't have to be perfect to be amazing.",
+                "Everything you can imagine is real.",
+                "Sometimes later becomes never. Do it now.",
+                "Make yourself a priority.",
+                "Keep going. Everything you need will come at the perfect time.",
+                "Dream. Plan. Execute.",
+                "Rise up and attack the day with enthusiasm.",
+                "Do something today that your future self will thank you for.",
+                "Don't stop until you're proud.",
+                "Hard work beats talent when talent doesn’t work hard.",
+                "Good things take time.",
+                "You get what you work for.",
+                "Trust the process.",
+                "Start today, not tomorrow.",
+                "Make your own luck.",
+                "Your vibe attracts your tribe.",
+                "The best view comes after the hardest climb.",
+                "Focus on the good.",
+                "Don't wait for opportunity. Create it.",
+                "Take the risk or lose the chance.",
+                "Keep moving forward.",
+                "One step at a time.",
+                "Create the life you want.",
+                "Be a voice, not an echo.",
+                "If you can dream it, you can achieve it.",
+                "Success begins with a single step.",
+                "You are capable of amazing things.",
+                "Stay positive, work hard, make it happen.",
+                "Believe in your dreams.",
+                "Good things are coming.",
+                "Everything starts with a decision.",
+                "Your potential is endless.",
+                "Grow through what you go through.",
+                "Wake up with determination.",
+                "Make every day count.",
+                "Be the energy you want to attract.",
+                "You are stronger than you think.",
+                "The comeback is always stronger than the setback.",
+                "Don’t limit your challenges; challenge your limits.",
+                "Stay patient and trust your journey.",
+                "Every day is a new chance to improve.",
+                "You don’t find willpower, you create it.",
+                "Think less, do more.",
+                "There is no elevator to success.",
+                "Do what makes you happy.",
+                "Work until you no longer need to introduce yourself.",
+                "Be fearless in the pursuit of what sets your soul on fire.",
+                "Stop wishing, start doing.",
+                "Stay focused and never give up.",
+                "You have to believe in yourself.",
+                "Difficult roads often lead to beautiful destinations.",
+                "Be the reason someone smiles today.",
+                "Your dreams are valid.",
+                "Never stop learning.",
+                "Start small, think big.",
+                "Life begins at the end of your comfort zone.",
+                "The best time for new beginnings is now.",
+                "Practice makes progress.",
+                "Make your dreams a reality.",
+                "Do your best and forget the rest.",
+                "Don’t fear failure.",
+                "Think big. Trust yourself.",
+                "You are your only competition.",
+                "Build your dream before someone hires you to build theirs.",
+                "Don’t be afraid to start over.",
+                "Create your own sunshine.",
+                "Your success is your responsibility.",
+                "Believe in the power of consistency.",
+                "Never give up on something you really want.",
+                "Strive for progress, not perfection.",
+                "Everything you need is already inside you."
+            ];
+
+            let randomQuote = Math.floor(Math.random() * quotes.length);
+            let x = Math.random() * 100;
+            let y = Math.random() * 100;
+            let r = Math.random() * 100;
+            let c1 = Math.floor(Math.random() * 256);
+            let c2 = Math.floor(Math.random() * 256);
+            let c3 = Math.floor(Math.random() * 256);
+            let h1 = document.createElement('h1');
+            h1.innerHTML = quotes[randomQuote];
+            h1.style.position = 'absolute';
+            h1.style.top = y + '%';
+            h1.style.left = x + '%';
+            h1.style.rotate = r + 'deg';
+            h1.style.scale = Math.random() * 3;
+            h1.style.color = `rgb(${c1},${c2},${c3})`;
+            main.appendChild(h1);
+
+        });
+    </script>
+</body>
+
+</html>
