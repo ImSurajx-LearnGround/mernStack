@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript: DOM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        
+    </main>
+    <script>
+        // setTimeout: use to implement delay
+        setTimeout(() => {
+            console.log("Hello Suraj");
+            console.log("Hello Suraj");
+            console.log("Hello Suraj");
+            console.log("Hello Suraj");
+            console.log("Hello Suraj");
+        }, 1000);
+
+        // setInterval:  kind of loop, but with time interval.
+        // sometimes it makes loop infinite.
+        setInterval(() => {
+            console.log("Hello");
+        }, 1000);
+      
+
+        // managing setInterval & setTimeout
+        let a = 0;
+        let int = setInterval(()=>{
+            a++
+            console.log(a);
+        },100);
+        setTimeout(()=>{
+              clearInterval(int);
+        },5000)
+    </script>
+</body>
+
+</html>
